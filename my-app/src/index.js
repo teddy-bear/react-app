@@ -20,8 +20,16 @@ const element = (
     </h1>
 );
 
+function ShowName(props) {
+    return <h2>Greetings, {props.title} and {props.description} when {props.condition}</h2>;
+}
+
+// always start component names with a capital letter!
+const elementCustom = <ShowName title='aa' description="bb" condition="cc"/>;
+
+
 ReactDOM.render(
-    element,
+    elementCustom,
     document.getElementById('root')
 );
 
