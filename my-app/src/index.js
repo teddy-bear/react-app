@@ -3,36 +3,68 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 //import App2 from './App2';
+
+// todo: what for this is?
 import registerServiceWorker from './registerServiceWorker';
 
-function formatName(user) {
-    return user.firstName + ' ' + user.lastName;
+registerServiceWorker();
+
+function formatDate(date) {
+    return date.toLocaleDateString();
 }
 
-const user = {
-    firstName: 'Harper',
-    lastName: 'Perez'
+function Avatar(props) {
+    return (
+        <img
+            className="Avatar"
+            src={props.user.avatarUrl}
+            alt={props.user.name}
+        />
+    );
+}
+
+function UserInfo(props) {
+    return (
+        <div className="UserInfo">
+            <Avatar user={props.user}/>
+            <div className="UserInfo-name">
+                {props.user.name}
+            </div>
+        </div>
+    );
+}
+
+function Comment(props) {
+    return (
+        <div className="Comment">
+            <UserInfo user={props.author}/>
+            <div className="Comment-text">
+                {props.text}
+            </div>
+            <div className="Comment-date">
+                {formatDate(props.date)}
+            </div>
+        </div>
+    );
+}
+
+const comment = {
+    date: new Date(),
+    text:
+        'I hope you enjoy learning React!',
+    author: {
+        name: 'Hello Kitty',
+        avatarUrl:
+            'http://placekitten.com/g/64/64',
+    },
 };
-
-const element = (
-    <h1>
-        Hello, {formatName(user)}!
-    </h1>
-);
-
-function ShowName(props) {
-    return <h2>Greetings, {props.title} and {props.description} when {props.condition}</h2>;
-}
-
-// always start component names with a capital letter!
-const elementCustom = <ShowName title='aa' description="bb" condition="cc"/>;
-
-
 ReactDOM.render(
-    elementCustom,
+    <Comment
+        date={comment.date}
+        text={comment.text}
+        author={comment.author}
+    />,
     document.getElementById('root')
 );
 
-//ReactDOM.render(<App/>, document.getElementById('root'));
-//ReactDOM.render(<App2/>, document.getElementById('root2'));
-registerServiceWorker();
+
