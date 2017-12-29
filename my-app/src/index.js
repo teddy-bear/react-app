@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-//import App2 from './App2';
+import Clock from './Clock';
+import ButtonToggle from './ButtonToggle';
 
 // todo: what for this is?
 import registerServiceWorker from './registerServiceWorker';
@@ -67,4 +68,8 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
+ReactDOM.render(
+    <Clock/>,
+    document.getElementById('clock')
+);
 
