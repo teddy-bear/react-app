@@ -73,3 +73,7 @@ ReactDOM.render(
     document.getElementById('clock')
 );
 
+ReactDOM.render(
+    <ButtonToggle/>,
+    document.querySelector('.btn-toggle')
+);

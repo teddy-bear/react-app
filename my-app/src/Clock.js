@@ -23,11 +23,17 @@ class Clock extends React.Component {
         });
     }
 
+    callMe() {
+        console.log('callMe is called');
+    }
+
     render() {
         return (
             <div>
                 <h1>Hello, world!</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <div>let`s add some new text here</div>
+                <button onClick={this.callMe}>remove me</button>
             </div>
         );
     }
