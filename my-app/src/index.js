@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import Clock from './Clock';
+import Clock from './Clock/Clock';
+import Posts from './Blog/Posts';
 import ButtonToggle from './ButtonToggle';
 
 // todo: what for this is?
@@ -30,6 +30,7 @@ function UserInfo(props) {
             <Avatar user={props.user}/>
             <div className="UserInfo-name">
                 {props.user.name}
+                {props.children}
             </div>
         </div>
     );
@@ -38,6 +39,8 @@ function UserInfo(props) {
 function Comment(props) {
     return (
         <div className="Comment">
+            <Posts/>
+            {props.children}
             <UserInfo user={props.author}/>
             <div className="Comment-text">
                 {props.text}
@@ -64,7 +67,8 @@ ReactDOM.render(
         date={comment.date}
         text={comment.text}
         author={comment.author}
-    />,
+    >
+    <p>children info is rendered here</p></Comment>,
     document.getElementById('root')
 );
 
