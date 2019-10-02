@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Post from "./Post";
-import Comment from "./Comment";
+//import Comment from "./Comment";
 
 class Posts extends React.Component {
 

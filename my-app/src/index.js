@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Clock from './Clock/Clock';
 import Posts from './Blog/Posts';
-import ButtonToggle from './ButtonToggle';
+import Team from './Team/Team';
 
 // todo: what for this is?
 import registerServiceWorker from './registerServiceWorker';
@@ -78,6 +78,6 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-    <ButtonToggle/>,
-    document.querySelector('.btn-toggle')
+    <Team/>,
+    document.querySelector('.team')
 );
