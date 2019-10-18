@@ -15,28 +15,30 @@ const Team = (props) => {
 
     const [otherState, setOtherState] = useState('some other value');
 
-    console.log(personsState, otherState);
+    //console.log(personsState, otherState);
 
     const switchNameHandler = () => {
-        // console.log('Was clicked!');
+        console.log(this);
         // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
         setPersonsState({
             persons: [
-                {name: 'Maximilian', age: 28},
-                {name: 'Manu', age: 29},
-                {name: 'Stephanie', age: 27}
+                {name: 'Simone', age: 28, extra: 'extra value for single item only'},
+                {name: 'Peter', age: 29},
+                {name: 'Ann', age: 27}
             ]
         });
     };
 
     return (
         <div className="team-members">
-            <h1>Hi, I'm a React App</h1>
-            <p>This is really working!</p>
+            <h1>Our team</h1>
+            <p>static description</p>
             <button onClick={switchNameHandler}>Switch Name</button>
             <Person
+                press_me={switchNameHandler}
                 name={personsState.persons[0].name}
                 age={personsState.persons[0].age}
+                extra={personsState.persons[0].extra}
             />
             <Person
                 name={personsState.persons[1].name}

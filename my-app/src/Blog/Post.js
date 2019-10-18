@@ -4,7 +4,7 @@ import React from 'react';
 // support is enough
 const Post = (props) => {
     return (
-        <div className='postItem'>
+        <div className='postItem' onClick={props.press}>
             <h3>{props.title}</h3>
             <div className='inner'>
                 {props.children}

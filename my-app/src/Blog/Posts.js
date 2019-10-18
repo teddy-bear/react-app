@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Post from "./Post";
+
 //import Comment from "./Comment";
 
 class Posts extends React.Component {
@@ -17,14 +18,14 @@ class Posts extends React.Component {
         },
     };
 
-    callMe() {
-        console.log('callMe is called');
+    callMe(value) {
+        console.log(value);
     }
 
     render() {
         return (
             <div className='postsList'>
-                <Post title={this.comment.title}>
+                <Post title={this.comment.title} press={this.callMe.bind(this, 'tt')}>
                     <img src={this.comment.author.avatarUrl} alt=""/>
                     {this.comment.author.text}
                     <h4>{this.comment.author.name}</h4>
