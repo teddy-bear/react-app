@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Clock from './Clock/Clock';
 import Posts from './Blog/Posts';
-import Team from './Team/Team';
+import App from './App/App';
 
 // todo: what for this is?
 import registerServiceWorker from './registerServiceWorker';
+import test from "./ContactForm/test";
 
 registerServiceWorker();
 
@@ -78,6 +79,6 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-    <Team/>,
-    document.querySelector('.team')
+    <App/>,
+    document.getElementById('app')
 );

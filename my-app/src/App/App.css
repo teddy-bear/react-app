@@ -1,0 +1,17 @@
+.section-top {
+    padding: 20px 0;
+}
+
+.section-top .btn {
+    float: right;
+}
+
+.team-wrapper {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eeee;
+    margin-bottom: 30px;
+}
+
+.team-wrapper .card {
+    margin-bottom: 20px;
+}
