@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Clock from './Clock/Clock';
-import Posts from './Blog/Posts';
-import App from './App/App';
+import './assets/css/index.css';
+import Clock from './components/Clock/Clock';
+import Posts from './components/Blog/Posts';
+import App from './containers/App';
 
 // todo: what for this is?
 import registerServiceWorker from './registerServiceWorker';
-import test from "./ContactForm/test";
 
 registerServiceWorker();
 
@@ -79,6 +78,6 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-    <App/>,
+    <App title={'Our players'}/>,
     document.getElementById('app')
 );

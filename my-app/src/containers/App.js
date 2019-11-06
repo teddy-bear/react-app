@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Person from '../Person/Person';
-import ButtonToggle from '../Person/ButtonToggle';
-import person_removed from '../Person/Person-removed';
+import Person from '../components/Persons/Person/Person';
+import ButtonToggle from '../components/Persons/ButtonToggle';
+import person_removed from '../components/Persons/Person-removed';
 import './App.css';
 
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
      * Toggle cards visibility
      */
     togglePersonsView = () => {
-        const isVisible = this.state.personsVisible;
+        const  isVisible = this.state.personsVisible;
         this.setState({
             personsVisible: !isVisible
         })
@@ -136,7 +136,7 @@ class App extends Component {
                 <div className="section-top">
                     <div className="row">
                         <div className="col-9">
-                            <h1> Our players</h1>
+                            <h1>{this.props.title}</h1>
                         </div>
                         <div className="col-3">
                             <div className="btn-group" role="group">
@@ -154,6 +154,10 @@ class App extends Component {
                 {removedPerson}
             </div>
         );
+
+    }
+    componentDidMount() {
+        console.log('componentDidMount done')
     }
 }
 

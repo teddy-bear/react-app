@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ButtonToggle = (props) => {
+const ButtonToggle = props => {
     return (
         <button className={props.className} onClick={props.click}>
             {props.children}
