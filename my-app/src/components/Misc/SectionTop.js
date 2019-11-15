@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ButtonToggle from "../Persons/ButtonToggle";
 import Button from "../Bootstrap/Buttons/Button";
 
@@ -11,6 +11,11 @@ const section_top = (props) => {
         btnCLasses = 'btn btn-danger';
     }
     console.log('section top renders ....');
+
+    useEffect(() => {
+        console.log('visibility has changed');
+    }, [props.personsVisible]);
+
     return (
         <div className="section-top">
             <div className="row">
