@@ -3,6 +3,7 @@ import Persons from '../components/Persons/Persons';
 import ButtonToggle from '../components/Persons/ButtonToggle';
 import person_removed from '../components/Persons/Person-removed';
 import Section_top from '../components/Misc/SectionTop';
+import Alert from '../components/Bootstrap/Alerts/Alert';
 import './App.css';
 
 class App extends Component {
@@ -117,7 +118,7 @@ class App extends Component {
 
         if (this.state.removedPerson) {
             removedPerson = (
-                <div className="alert alert-warning" role="alert">{this.state.removedPerson.name}</div>
+                <Alert cssClasses={'primary'}>{'Removed player: ' + this.state.removedPerson.name}</Alert>
             )
         }
 
