@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 import ButtonToggle from '../components/Persons/ButtonToggle';
 import person_removed from '../components/Persons/Person-removed';
+import Section_top from '../components/Misc/SectionTop';
 import './App.css';
 
 class App extends Component {
@@ -50,7 +51,7 @@ class App extends Component {
      * Toggle cards visibility
      */
     togglePersonsView = () => {
-        const  isVisible = this.state.personsVisible;
+        const isVisible = this.state.personsVisible;
         this.setState({
             personsVisible: !isVisible
         })
@@ -96,12 +97,8 @@ class App extends Component {
     render() {
         let flag = this.state.personsVisible,
             persons,
-            removedPerson,
-            btnCLasses = 'btn btn-success';
+            removedPerson;
 
-        if (this.state.personsVisible) {
-            btnCLasses = 'btn btn-danger';
-        }
         // cant use ths to copy current data since it`s render is executed each time on stateChange
         // const originalPersons = [...this.state.persons];
 
@@ -109,17 +106,11 @@ class App extends Component {
         if (flag) {
             persons = (
                 <div className='row'>
-                    {this.state.persons.map((person, index) => {
-                        return <Person
-                            className={person.className}
-                            name={person.name}
-                            age={person.age}
-                            key={person.id}
-                            click={() => this.deleteItem(index)}
-                            changed={(event) => this.changeName(event, person.id)}>
-                            {person.content}
-                        </Person>
-                    })}
+                    <Persons
+                        persons_state={this.state.persons}
+                        clicked={this.deleteItem}
+                        changed={this.changeName}
+                    />
                 </div>
             );
         }
@@ -130,32 +121,21 @@ class App extends Component {
             )
         }
 
-
         return (
             <div className="team-wrapper">
-                <div className="section-top">
-                    <div className="row">
-                        <div className="col-9">
-                            <h1>{this.props.title}</h1>
-                        </div>
-                        <div className="col-3">
-                            <div className="btn-group" role="group">
-                                <button className="btn btn-info" onClick={this.restorePerson}>
-                                    Restore persons
-                                </button>
-                                <ButtonToggle className={btnCLasses} click={this.togglePersonsView}>
-                                    {this.state.personsVisible ? 'Hide players' : 'Show players'}
-                                </ButtonToggle>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Section_top
+                    title='Our Team'
+                    clicked={this.restorePerson}
+                    btn_text={'Restore persons'}
+                    toggle_click={this.togglePersonsView}
+                    personsVisible={this.state.personsVisible}
+                />
                 {persons}
                 {removedPerson}
             </div>
         );
-
     }
+
     componentDidMount() {
         console.log('componentDidMount done')
     }
