@@ -127,7 +127,6 @@ class App extends Component {
                 <Section_top
                     title='Our Team'
                     clicked={this.restorePerson}
-                    btn_text={'Restore persons'}
                     toggle_click={this.togglePersonsView}
                     personsVisible={this.state.personsVisible}
                 />

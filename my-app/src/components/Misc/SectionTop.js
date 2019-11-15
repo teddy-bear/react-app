@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonToggle from "../Persons/ButtonToggle";
+import Button from "../Bootstrap/Buttons/Button";
 
 const section_top = (props) => {
 
@@ -18,9 +19,9 @@ const section_top = (props) => {
                 </div>
                 <div className="col-3">
                     <div className="btn-group" role="group">
-                        <button className="btn btn-info" onClick={props.clicked}>
-                            {props.btn_text}
-                        </button>
+                        <Button cssClasses="btn btn-info" clicked={props.clicked}>
+                            Restore persons
+                        </Button>
                         <ButtonToggle className={btnCLasses} click={props.toggle_click}>
                             {btnText}
                         </ButtonToggle>
