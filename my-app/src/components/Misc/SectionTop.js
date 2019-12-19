@@ -5,11 +5,18 @@ import Button from "../Bootstrap/Buttons/Button";
 const section_top = (props) => {
 
     let btnText = 'Hide players',
-        btnCLasses = 'btn btn-success';
+        btnCLasses = 'btn btn-success',
+        restoreBtnClass = 'info';
+
     if (props.personsVisible) {
         btnText = 'Show players';
         btnCLasses = 'btn btn-danger';
     }
+
+    if (!props.restoreAvailable) {
+        restoreBtnClass += ' disabled'
+    }
+
     console.log('section top renders ....');
 
     useEffect(() => {
@@ -17,14 +24,14 @@ const section_top = (props) => {
     }, [props.personsVisible]);
 
     return (
-        <div className="section-top">
+        <div className="section-top" data-tile={props.dataTitle}>
             <div className="row">
                 <div className="col-9">
                     <h1>{props.title}</h1>
                 </div>
                 <div className="col-3">
                     <div className="btn-group" role="group">
-                        <Button cssClasses="btn btn-info" clicked={props.clicked}>
+                        <Button cssClasses={restoreBtnClass} clicked={props.clicked}>
                             Restore persons
                         </Button>
                         <ButtonToggle className={btnCLasses} click={props.toggle_click}>
@@ -37,4 +44,4 @@ const section_top = (props) => {
     )
 };
 
-export default section_top;
+export default React.memo(section_top);

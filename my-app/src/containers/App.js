@@ -4,6 +4,7 @@ import ButtonToggle from '../components/Persons/ButtonToggle';
 import person_removed from '../components/Persons/Person-removed';
 import Section_top from '../components/Misc/SectionTop';
 import Alert from '../components/Bootstrap/Alerts/Alert';
+import Aux from '../components/Helpers/Auxiliary';
 import './App.css';
 
 class App extends Component {
@@ -18,6 +19,12 @@ class App extends Component {
         ],
         personsVisible: true,
         removedPerson: '',
+        restoreAvailable: false
+    };
+
+    getInitialPersonsCount = () => {
+        const initialPersonsCount = this.state.persons.length;
+        return initialPersonsCount;
     };
 
     /**
@@ -26,10 +33,18 @@ class App extends Component {
     restorePerson = () => {
         let removedPerson = this.state.removedPerson;
         let persons = [...this.state.persons];
-        persons.push(removedPerson);
-        this.setState({
-            persons: persons
-        });
+        let personsOriginal = this.getInitialPersonsCount();
+        if (persons.length < 5) {
+            persons.push(removedPerson);
+            this.setState({
+                persons: persons,
+                restoreAvailable: true
+            });
+        } else {
+            this.setState({
+                restoreAvailable: false
+            });
+        }
     };
 
     /**
@@ -98,6 +113,7 @@ class App extends Component {
     render() {
         let flag = this.state.personsVisible,
             persons,
+            restoreNotification,
             removedPerson;
 
         // cant use ths to copy current data since it`s render is executed each time on stateChange
@@ -122,22 +138,38 @@ class App extends Component {
             )
         }
 
+        if (!this.state.restoreAvailable) {
+            restoreNotification = (
+                <Alert cssClasses={'info'}>No more players to restore</Alert>
+            )
+        }
+
         return (
-            <div className="team-wrapper">
-                <Section_top
-                    title='Our Team'
-                    clicked={this.restorePerson}
-                    toggle_click={this.togglePersonsView}
-                    personsVisible={this.state.personsVisible}
-                />
-                {persons}
-                {removedPerson}
-            </div>
+            <Aux>
+                <div className="team-wrapper">
+                    <Section_top
+                        dataTitle={'functional title'}
+                        title='Our Team'
+                        clicked={this.restorePerson}
+                        toggle_click={this.togglePersonsView}
+                        personsVisible={this.state.personsVisible}
+                        restoreAvailable={this.state.restoreAvailable}
+                    />
+                    {persons}
+                    {removedPerson}
+                    {restoreNotification}
+                </div>
+            </Aux>
         );
     }
 
+    // works for class based components
     componentDidMount() {
         console.log('componentDidMount done')
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate done')
     }
 }
 

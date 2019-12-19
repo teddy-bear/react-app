@@ -1,6 +1,6 @@
 import React from 'react';
 
-const alert = (props) => {
+function alert(props) {
 
     let cssClasses = props.cssClasses ? 'alert alert-' + props.cssClasses : 'alert alert-primary';
 
