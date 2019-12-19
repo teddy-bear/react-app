@@ -12,10 +12,10 @@ class App extends Component {
     state = {
         persons: [
             {id: '111', className: 'col-4', name: 'Max', age: 28},
-            {id: '22', className: 'col-4', name: 'Manu', age: 29},
+            {id: '22', className: 'col-4', name: 'Simon', age: 29},
             {id: '33', className: 'col-4', name: 'Stephanie', age: 26},
             {id: '444', className: 'col-4', name: 'Mike', age: 22},
-            {id: '55', className: 'col-4', name: 'Ann', age: 11}
+            {id: '55', className: 'col-4', name: 'Ann', age: 44}
         ],
         personsVisible: true,
         removedPerson: '',
