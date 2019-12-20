@@ -1,10 +1,9 @@
 import React from 'react';
 
-const button = (props) => {
+const Button = (props) => {
 
     let cssClasses = props.cssClasses ? 'btn btn-' + props.cssClasses : 'btn btn-primary';
 
-    console.log(this + 'button renders ....');
     return (
         <button className={cssClasses} onClick={props.clicked}>
             {props.children}
@@ -12,4 +11,4 @@ const button = (props) => {
     )
 };
 
-export default button;
+export default Button;

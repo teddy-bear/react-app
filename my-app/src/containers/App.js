@@ -5,6 +5,7 @@ import person_removed from '../components/Persons/Person-removed';
 import Section_top from '../components/Misc/SectionTop';
 import Alert from '../components/Bootstrap/Alerts/Alert';
 import Aux from '../components/Helpers/Auxiliary';
+import ModalPopup from '../components/Modal/Modal';
 import './App.css';
 
 class App extends Component {
@@ -159,6 +160,9 @@ class App extends Component {
                     {removedPerson}
                     {restoreNotification}
                 </div>
+                <ModalPopup title='Modal title' btn_primary={'close'} btn_secondary='save'>
+                    modal content goes here
+                </ModalPopup>
             </Aux>
         );
     }
